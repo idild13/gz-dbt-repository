@@ -4,11 +4,12 @@ version: 2
 
 sources:
   - name: raw   # 👈  New 'name' key for source alias
+    database: intro-to-sql-project-1  # Optional for BigQuery
     schema: gz_raw_data   # 👈 This is the real BigQuery dataset name
     tables:
       - name: sales       # 👈 Alias used in my dbt models / New 'name' key for table alias
-        alias: raw_gz_sales  # 👈 real table name in BigQuery / New 'alias' key for actual BigQuery table
+        identifier: raw_gz_sales  # 👈 real table name in BigQuery / New 'alias' key for actual BigQuery table
       - name: product
-        alias: raw_gz_product
+        identifier: raw_gz_product
       - name: ship
-        alias: raw_gz_ship
+        identifier: raw_gz_ship
