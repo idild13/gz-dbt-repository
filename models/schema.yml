@@ -1,15 +1,52 @@
-# schema.yml
-
 version: 2
 
 sources:
-  - name: raw   # 👈  New 'name' key for source alias
-    database: intro-to-sql-project-1  # Optional for BigQuery
-    schema: gz_raw_data   # 👈 This is the real BigQuery dataset name
+  - name: raw
+    database: intro-to-sql-project-1
+    schema: gz_raw_data
     tables:
-      - name: sales       # 👈 Alias used in my dbt models / New 'name' key for table alias
-        identifier: raw_gz_sales  # 👈 real table name in BigQuery / New 'alias' key for actual BigQuery table
+      - name: sales
+        identifier: raw_gz_sales
+        description: "Sales of Greenweez — we have one row per product_id found in each orders_id"
+        columns:
+          - name: date_date
+            description: "Date of purchase"
+          - name: orders_id
+            description: "The identification number for the order"
+          - name: pdt_id
+            description: "The identification number for the product"
+          - name: quantity
+            description: "The quantity number of sales"
+          - name: revenue
+            description: "The revenue generated per sales"
+        tests:
+          - unique:
+              column_name: "(orders_id || '-' || pdt_id)"
+
       - name: product
         identifier: raw_gz_product
+        description: "Products of Greenweez — we have one row per product_id showing its purchase price"
+        columns:
+          - name: products_id
+            description: "The identification number for the product"
+            tests:
+              - unique
+              - not_null
+          - name: purchase_price
+            description: "The purchase price per product id"
+
       - name: ship
         identifier: raw_gz_ship
+        description: "Shipping of Greenweez — we have one row per orders_id showing fees and costs"
+        columns:
+          - name: orders_id
+            description: "The identification number for the order"
+            tests:
+              - unique
+              - not_null
+          - name: shipping_fee 
+            description: "Shipping fee per orders_id"
+          - name: logcost 
+            description: "Log cost per orders_id"
+          - name: ship_cost
+            description: "Ship cost per orders_id"
