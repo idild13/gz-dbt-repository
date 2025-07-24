@@ -112,10 +112,6 @@ models:
         description: "quantity per order id"
         tests:
           - not_null
-      - name: purchase_price
-        description: "purchase price order id"
-        tests:
-         - not_null
       - name: purchase_cost
         description: "purchase cost order id"
         tests:
