@@ -41,4 +41,4 @@ models:
     mart:
       +materialized: table
       finance:
-         +schema: dbt_idil_finance_data
+         +schema: finance_data
