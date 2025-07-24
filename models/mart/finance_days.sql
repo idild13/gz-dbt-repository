@@ -1,6 +1,8 @@
- -- finance_days.sql
- 
- WITH orders_per_day AS (
+{{ config(
+    materialized='table'
+) }}
+
+WITH orders_per_day AS (
    SELECT
      date_date
      ,COUNT(DISTINCT orders_id) AS nb_transactions
