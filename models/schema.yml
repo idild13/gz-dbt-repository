@@ -50,79 +50,80 @@ sources:
             description: "Log cost per orders_id"
           - name: ship_cost
             description: "Ship cost per orders_id"
-      
-       
-      - name: int_sales_margin
-        description: "Cost and margin table per products_id"
-        columns:
-          - name: products_id
-            description: "ID per product"
-            tests:
-              - not_null
-          - name: date_date,
-            description: "date"
-            tests:
-              - not_null
-          - name: orders_id
-            description: "ID per order"
-            tests:
-              - not_null
-          - name: revenue
-            description: "revenue per product id"
-            tests:
-              - not_null
-          - name: quantity
-            description: "quantity per product id"
-            tests:
-              - not_null
-          - name: purchase_price
-            description: "purchase price product id"
-            tests:
-              - not_null
-          - name: purchase_cost
-            description: "purchase cost product id"
-            tests:
-              - not_null
-          - name: margin
-            description: "margin per product id"
-            tests:
-              - not_null
+
+
+models:
+  - name: int_sales_margin
+    description: "Cost and margin table per products_id"
+    columns:
+      - name: products_id
+        description: "ID per product"
         tests:
-          - unique:
-              column_name: "(orders_id || '-' || products_id)"
+          - not_null
+      - name: date_date,
+        description: "date"
+        tests:
+          - not_null
+      - name: orders_id
+        description: "ID per order"
+        tests:
+              - not_null
+      - name: revenue
+        description: "revenue per product id"
+        tests:
+         - not_null
+      - name: quantity
+        description: "quantity per product id"
+        tests:
+          - not_null
+      - name: purchase_price
+        description: "purchase price product id"
+        tests:
+          - not_null
+      - name: purchase_cost
+        description: "purchase cost product id"
+        tests:
+          - not_null
+      - name: margin
+        description: "margin per product id"
+        tests:
+           - not_null
+    tests:
+        - unique:
+            column_name: "(orders_id || '-' || products_id)"
         
-      - name: int_orders_margin
-        description: "int_sales_margin grouped by orders_id and date"
-        columns:
-          - name: date_date,
-            description: "date"
-            tests:
-              - not_null
-          - name: orders_id
-            description: "primary key"
-            tests:
-              - unique
-              - not_null
-          - name: revenue
-            description: "revenue per order id"
-            tests:
-              - not_null
-          - name: quantity
-            description: "quantity per order id"
-            tests:
-              - not_null
-          - name: purchase_price
-            description: "purchase price order id"
-            tests:
-              - not_null
-          - name: purchase_cost
-            description: "purchase cost order id"
-            tests:
-              - not_null
-          - name: margin
-            description: "margin per order id"
-            tests:
-              - not_null
+  - name: int_orders_margin
+    description: "int_sales_margin grouped by orders_id and date"
+    columns:
+      - name: date_date
+        description: "date"
+        tests:
+           - not_null
+      - name: orders_id
+        description: "primary key"
+        tests:
+           - unique
+           - not_null
+      - name: revenue
+        description: "revenue per order id"
+        tests:
+         - not_null
+      - name: quantity
+        description: "quantity per order id"
+        tests:
+          - not_null
+      - name: purchase_price
+        description: "purchase price order id"
+        tests:
+         - not_null
+      - name: purchase_cost
+        description: "purchase cost order id"
+        tests:
+         - not_null
+      - name: margin
+        description: "margin per order id"
+        tests:
+         - not_null
 
       - name: int_orders_operational
         description: "int_orders_margin joined by ship table to calculate operational margin per order"
