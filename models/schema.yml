@@ -60,7 +60,7 @@ models:
         description: "ID per product"
         tests:
           - not_null
-      - name: date_date,
+      - name: date_date
         description: "date"
         tests:
           - not_null
