@@ -9,4 +9,4 @@
      ROUND(SUM(margin),2) as margin
  FROM {{ ref("int_sales_margin") }}
  GROUP BY orders_id,date_date
- ORDER BY orders_id DESC
+ ORDER BY orders_id DESC 
