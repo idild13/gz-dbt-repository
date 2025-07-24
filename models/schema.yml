@@ -53,6 +53,9 @@ sources:
 
 
 models:
+
+# intermediate #
+
   - name: int_sales_margin
     description: "Cost and margin table per products_id"
     columns:
