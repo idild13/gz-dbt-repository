@@ -29,6 +29,12 @@ This repository was created for the **Greenweez Analytics – dbt Pipeline proje
 | | `int_orders_operational.sql` | Operational margin (joins shipping fees & costs) |
 | **Mart** | `finance_days.sql` | Daily KPIs: transactions, revenue, avg basket, op. margin |
 
+### 📸 Screenshots
+
+| Lineage Graph | Finance Table | Dataset Structure |
+|---|---|---|
+| ![Lineage](Screenshots/lineage_graph.png) | ![Finance](Screenshots/snapshot_finance_days_table.png) | ![Dataset](Screenshots/dataset_structure.png) |
+
 ## ✅ Testing & Docs
 - Uniqueness & `not_null` tests for all PKs and key columns.
 - Combination uniqueness for `sales` (`orders_id || pdt_id`).
