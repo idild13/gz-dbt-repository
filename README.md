@@ -1,4 +1,4 @@
-# Greenweez Analytics – dbt Pipeline (Bootcamp Project)
+# Greenweez Analytics – dbt Pipeline
 
 ## 📌 Overview
 This repository was created for the **Greenweez Analytics – dbt Pipeline project** completed during Le Wagon’s Data Analytics Bootcamp. The goal was to build a complete analytics pipeline for Greenweez sales, products, and shipping data in BigQuery, following dbt best practices.
